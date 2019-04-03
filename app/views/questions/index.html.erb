@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rescue Mission Questions</h1>
+
+<body>
+  <ul>
+    <% @questions.each do |question| %>
+      <li><%= link_to question.title, question %><%= question.created_at.strftime(" %B %e %Y") %></li>
+    <% end %>
+  </ul>
+  <div id="new_quetion">
+  <%= link_to "New Question", new_question_url %>
+  </div>
+</body>
