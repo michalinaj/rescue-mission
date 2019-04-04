@@ -2,7 +2,11 @@
 
 <h2><%= @question.title %></h2>
 <%= @question.description %>
-
 <br>
+<% @answers.each do |answer| %>
+  <ul><%= answer.description %></ul>
+<% end %>
+<br>
+<%= link_to "Add your answer", new_question_answer_path(@question) %>
 <br>
 <%= link_to "Back to Questions", questions_path %>
