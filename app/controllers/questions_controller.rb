@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @answer = Answer.new
-    # render :show
   end
 
   def new
@@ -22,7 +21,24 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'Article was successfully created.'
       redirect_to @question
     else
+      flash[:error] = 'Something went wrong.'
       render :new
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.update(params.require(:question).permit(:title, :description))
+    if @question.save
+      flash[:notice] = 'Article was sucessfully updated.'
+      redirect_to @question
+    else
+      flash[:error] = 'Something went wrong.'
+      render :edit
     end
   end
 

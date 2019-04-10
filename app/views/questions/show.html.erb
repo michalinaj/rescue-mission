@@ -3,10 +3,12 @@
 <h2><%= @question.title %></h2>
 <%= @question.description %>
 <br>
+<ul>
 <% @answers.each do |answer| %>
-  <ul><%= answer.description %></ul>
+  <li><%= answer.description %><%= answer.created_at.strftime(" %B %e %Y") %></li>
 <% end %>
+</ul>
 <br>
-<%= link_to "Add your answer", new_question_answer_path(@question) %>
-<br>
+<%= link_to "Add your answer", new_question_answer_path(@question) %><br>
+<%= link_to "Edit your question", edit_question_url %><br>
 <%= link_to "Back to Questions", questions_path %>

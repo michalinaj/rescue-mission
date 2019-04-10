@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
 
   def index
     @question = Question.find(params[:question_id])
-    @answer = @question.answers
+    @answer = @question.answers.order("created_at DESC")
   end
 
   def new

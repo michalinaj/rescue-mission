@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rescue Mission Questions</h1>
+<h1>All the Questions</h1>
 
 <body>
-  <ul>
-    <% @questions.each do |question| %>
-      <li><%= link_to question.title, question %><%= question.created_at.strftime(" %B %e %Y") %></li>
-    <% end %>
-  </ul>
-  <div id="new_quetion">
-  <%= link_to "New Question", new_question_url %>
+  <div class="question-box"
+    <ul class="question-list">
+      <% @questions.each do |question| %>
+        <li class="single-question"><%= link_to question.title, question %><%= question.created_at.strftime(" %B %e %Y") %></li>
+      <% end %>
+    </ul>
+    <div id="new-quetion">
+    <%= link_to "New Question", new_question_url %>
+    </div>
   </div>
 </body>
