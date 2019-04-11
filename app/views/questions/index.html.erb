@@ -6,10 +6,10 @@
   <div class="question-box"
     <ul class="question-list">
       <% @questions.each do |question| %>
-        <li class="single-question"><%= link_to question.title, question %><%= question.created_at.strftime(" %B %e %Y") %></li>
+        <div id="single-question"><%= link_to question.title, question %><div id="date"><%= question.created_at.strftime(" %B %e %Y") %></div></div><br>
       <% end %>
     </ul>
-    <div id="new-quetion">
+    <div id="button">
     <%= link_to "New Question", new_question_url %>
     </div>
   </div>

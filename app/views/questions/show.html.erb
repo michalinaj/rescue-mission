@@ -5,10 +5,13 @@
 <br>
 <ul>
 <% @answers.each do |answer| %>
-  <li><%= answer.description %><%= answer.created_at.strftime(" %B %e %Y") %></li>
+  <div id="answer"><li><%= answer.description %><div id="date"><%= answer.created_at.strftime(" %B %e %Y") %></div></li></div>
 <% end %>
 </ul>
 <br>
-<%= link_to "Add your answer", new_question_answer_path(@question) %><br>
-<%= link_to "Edit your question", edit_question_url %><br>
-<%= link_to "Back to Questions", questions_path %>
+<div id="button"><%= link_to "Add your answer", new_question_answer_path(@question)%></div>
+<div id="button"><%= link_to "Edit your question", edit_question_url %></div>
+
+<div id="delete-button"><%= link_to 'Delete', question_path(@question), method: :delete, data: { confirm: "Really?" } %></div>
+
+<div id="button"><%= link_to "Back to Questions", questions_path %></div>

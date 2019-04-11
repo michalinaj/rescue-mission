@@ -18,4 +18,5 @@
   <br />
 <% end %>
 
+<div id="delete-button"><%= link_to 'Delete', question_path(@question), method: :delete, data: { confirm: "Really?" } %></div><br>
 <%= link_to 'Back', questions_path %>
